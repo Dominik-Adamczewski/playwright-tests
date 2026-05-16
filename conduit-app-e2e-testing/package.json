@@ -1,0 +1,22 @@
+{
+  "name": "conduit-app-e2e-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "playwright:uiMode": "npx playwright test --ui",
+    "playwright:headlessMode": "npx playwright test --headed",
+    "playwright:run": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
