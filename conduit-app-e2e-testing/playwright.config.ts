@@ -15,6 +15,7 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
     trace: 'on-first-retry',
   },
+  globalSetup: require.resolve('./global-setup'),
   projects: [
     {
       name: 'chromium',
