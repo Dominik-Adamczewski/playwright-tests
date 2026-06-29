@@ -40,6 +40,7 @@ test.describe('Article favorites test suite', () => {
 
     test('It should add new article to favorites from articles list', async ({ userLoggedInPage, homePage, userProfilePage }) => {
       // Arrange
+      await homePage.goto();
       await homePage.filterByPopularTag(newArticle.tags![0]);
       const articleComponent = homePage.getArticlePreviewComponent(newArticle.title);
       // Act
@@ -57,6 +58,7 @@ test.describe('Article favorites test suite', () => {
 
     test('It should remove new article from favorites from articles list', async ({ userLoggedInPage, homePage, userProfilePage }) => {
       // Arrange
+      await homePage.goto();
       await homePage.filterByPopularTag(newArticle.tags![0]);
       const articleComponent = homePage.getArticlePreviewComponent(newArticle.title);
       await waitForRequestToFinish(userLoggedInPage, '/favorite', 200, () => articleComponent.clickFavoriteButton()); // add to favorites

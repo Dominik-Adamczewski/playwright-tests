@@ -1,7 +1,7 @@
 import { APIRequestContext, expect } from "@playwright/test"
 import { Page } from "@playwright/test";
 
-const API_BASE_URL = process.env.API_BASE_URL || 'localhost:3001';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3001';
 
 const getLoginToken = async (requestFixture: APIRequestContext, email: string, password: string) => {
   const response = await requestFixture.post(`${API_BASE_URL}/api/users/login`, {

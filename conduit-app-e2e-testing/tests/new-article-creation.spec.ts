@@ -30,7 +30,7 @@ test.describe('New article test suite', () => {
     // Act
     await newArticlePage.clickPublishArticleButton();
     // Assert
-    expect(newArticlePage.page).not.toHaveURL('/article');
+    await expect(newArticlePage.page).not.toHaveURL('/article');
   });
 
   test('It should not publish new article with only title filled in', async ({ newArticlePage }) => {
@@ -39,7 +39,7 @@ test.describe('New article test suite', () => {
     // Act
     await newArticlePage.clickPublishArticleButton();
     // Assert
-    expect(newArticlePage.page).not.toHaveURL('/article');
+    await expect(newArticlePage.page).not.toHaveURL('/article');
   });
 
   test('It should not publish new article with only title and description filled in', async ({ newArticlePage }) => {
@@ -49,7 +49,7 @@ test.describe('New article test suite', () => {
     // Act
     await newArticlePage.clickPublishArticleButton();
     // Assert
-    expect(newArticlePage.page).not.toHaveURL('/article');
+    await expect(newArticlePage.page).not.toHaveURL('/article');
   });
 
   test('It should validate creating article with existing name', async ({ userLoggedInPage, request, newArticlePage }) => {
