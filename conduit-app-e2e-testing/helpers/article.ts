@@ -1,7 +1,7 @@
 import { APIRequestContext, expect } from "@playwright/test"
 import { NewArticle } from "../types/conduit-types";
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3001';
 
 export const addNewArticleViaApi = async (
   requestFixture: APIRequestContext,
