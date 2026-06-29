@@ -23,6 +23,10 @@ type MyFixtures = {
 
 export const test = base.extend<MyFixtures>({
   userLoggedInPage: async ({ page, request }, use) => {
+    const response = await request.post(`${process.env.API_BASE_URL || 'http://localhost:3001'}/api/users/login`, {
+      data: { user: { email: existingUser.email, password: existingUser.password } }
+    });
+    console.log(`Login status in fixture: ${response.status()} ${await response.text()}`);
     await loginViaAPI(page, request, existingUser.email, existingUser.password);
     await page.goto('/#/');
 

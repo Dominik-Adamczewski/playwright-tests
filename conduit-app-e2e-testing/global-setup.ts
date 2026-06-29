@@ -19,7 +19,7 @@ async function globalSetup() {
     }
   });
 
-  console.log(`Seed user creation status: ${response.status()}`);
+  console.log(`Seed user creation status: ${response.status()} ${await response.text()}`);
   await requestContext.dispose();
 }
 

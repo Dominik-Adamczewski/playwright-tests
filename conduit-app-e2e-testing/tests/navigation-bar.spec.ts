@@ -15,7 +15,8 @@ const testUser: User = {
 test.describe('Navigation Bar test suite (public pages)', () => {
   test.beforeEach(async ({ page }) => {
     navigationBar = new NavigationBar(page);
-    await page.goto('/#/article/lorem-ipsum-37');
+    await page.goto('/#/');
+    await expect(navigationBar.homeLink).toBeVisible();
   });
 
   test('It should navigate to the home page when clicking on the "Home" link', async ({ page }) => {
@@ -55,7 +56,8 @@ test.describe('Navigation Bar test suite (private pages)', () => {
   test.beforeEach(async ({ page, request }) => {
     navigationBar = new NavigationBar(page);
     await loginViaAPI(page, request, testUser.email, testUser.password);
-    await page.goto('/#/article/lorem-ipsum-37');
+    await page.goto('/#/');
+    await expect(navigationBar.userAvatar).toBeVisible();
   });
 
   test('It should navigate to the New Article page when clicking on the "New Article" link', async ({ page }) => {
